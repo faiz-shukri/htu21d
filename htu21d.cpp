@@ -110,7 +110,7 @@ uint8_t HTU21D::requestHumidity()
 }
 int HTU21D::readResult()
 {
-    wire->requestFrom(address, 2);
+    wire->requestFrom(address, (uint8_t)2);
 
     uint16_t val = 0;
     int v = wire->read();
