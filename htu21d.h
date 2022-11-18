@@ -4,7 +4,7 @@
 #include <Arduino.h>
 #include <Wire.h>
 #include "elapsedMillis.h"
-
+#define HTU21D_ADDRESS 0x40
 class HTU21D;
 typedef void (*HTU21DCallback)(HTU21D *);
 
@@ -24,7 +24,7 @@ public:
     TwoWire *wire;
     uint8_t address;
     uint32_t pollingRate;
-    HTU21D(TwoWire *wire, uint8_t address = 0x40);
+    HTU21D(TwoWire *wire, uint8_t address = HTU21D_ADDRESS);
     HTU21DCallback onReadError = nullptr;
     HTU21DCallback onDataUpdated = nullptr;
 
